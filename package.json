@@ -1,7 +1,7 @@
 {
   "name": "ngfast",
-  "version": "0.0.2",
-  "description": "CLI to create angular projet with material and run server",
+  "version": "0.0.3",
+  "description": "CLI to create angular projet with material, run server and launche VsCode.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +9,8 @@
   "keywords": [
     "cli",
     "angular",
-    "material"
+    "material",
+    "vscode"
   ],
   "author": "Julien Bertacco",
   "license": "MIT",
