@@ -1,6 +1,6 @@
 {
   "name": "ngfast",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CLI to create angular projet with material, run server and launche VsCode.",
   "main": "src/index.js",
   "scripts": {
