@@ -1,6 +1,6 @@
 {
-  "name": "@high54/ngfast",
-  "version": "0.0.1",
+  "name": "ngfast",
+  "version": "0.0.2",
   "description": "CLI to create angular projet with material and run server",
   "main": "src/index.js",
   "scripts": {
@@ -14,7 +14,8 @@
   "author": "Julien Bertacco",
   "license": "MIT",
   "bin": {
-    "ngfast": "bin/ngfast"
+    "ngfast": "bin/ngfast",
+    "@high54/ngfast": "bin/ngfast"
   },
   "dependencies": {
     "@octokit/auth-basic": "^1.4.6",

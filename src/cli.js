@@ -5,6 +5,7 @@ const figlet = require('figlet');
 const { exec } = require("child_process");
 const chalk = require("chalk");
 const ngServe = `ng serve --o`;
+const runVsCode = `code .`;
 
 clear();
 function parseArgumentsIntoOptions(rawArgs) {
@@ -60,18 +61,17 @@ export async function cli(args) {
             console.log(`Installing Material ... `);
             addMaterialFn(options.name).then((result) => {
                 if (options.serve) {
-                    console.log(`Running server ... `);
-                    exec(ngServe);
+                    runServe();
                 }
             });
         } else {
             if (options.serve) {
-                console.log(`Running server ... `);
-                exec(ngServe);
+                runServe();
             }
         }
+        exec(runVsCode);
 
-    })
+    });
 
 }
 
@@ -95,4 +95,9 @@ async function addMaterialFn(name) {
             resolve(stdout ? stdout : stderr);
         });
     });
+}
+
+function runServe() {
+    console.log(`Running server ... `);
+    exec(ngServe);
 }
