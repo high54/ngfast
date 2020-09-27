@@ -5,6 +5,7 @@ const figlet = require('figlet');
 const { exec } = require("child_process");
 const chalk = require("chalk");
 const ngServe = `ng serve --o`;
+
 clear();
 function parseArgumentsIntoOptions(rawArgs) {
     const args = arg({

@@ -1,7 +1,7 @@
 {
   "name": "@high54/ngfast",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "CLI to create angular projet with material and run server",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,30 +11,34 @@
     "angular",
     "material"
   ],
-  "author": "David Neal (https://reverentgeek.com)",
+  "author": "Julien Bertacco",
   "license": "MIT",
   "bin": {
-    "@high54/ngfast": "./bin/ngfast",
-    "ngfast": "./bin/ngfast"
+    "ngfast": "bin/ngfast"
   },
   "dependencies": {
     "@octokit/auth-basic": "^1.4.6",
     "@octokit/rest": "^18.0.6",
     "arg": "^4.1.3",
-    "boxen": "^4.2.0",
     "chalk": "^4.1.0",
     "child_process": "^1.0.2",
     "clear": "^0.1.0",
     "clui": "^0.3.6",
-    "configstore": "^5.0.1",
     "esm": "^3.2.25",
     "figlet": "^1.5.0",
     "inquirer": "^7.3.3",
     "lodash": "^4.17.20",
     "minimist": "^1.2.5",
-    "pm2": "^4.4.1",
     "simple-git": "^2.20.1",
-    "touch": "^3.1.0",
-    "yargs": "^16.0.3"
-  }
+    "touch": "^3.1.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/high54/ngfast.git"
+  },
+  "bugs": {
+    "url": "https://github.com/high54/ngfast/issues"
+  },
+  "homepage": "https://github.com/high54/ngfast#readme"
 }
