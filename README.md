@@ -1,5 +1,5 @@
 # ngfast
-CLI to create angular projet with material, run server locally and open VsCode.
+CLI to create angular projet with material.
 
 - Create Angular project
 - Adding Angular Material to this project
