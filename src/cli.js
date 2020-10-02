@@ -13,9 +13,11 @@ function parseArgumentsIntoOptions(rawArgs) {
         '--material': Boolean,
         '--serve': Boolean,
         '--name': String,
+        '--port': Number,
         '-m': '--material',
         '-s': '--serve',
-        '-n': '--name'
+        '-n': '--name',
+        '-p': '--port'
     },
         {
             argv: rawArgs.slice(2)
@@ -25,6 +27,7 @@ function parseArgumentsIntoOptions(rawArgs) {
         name: args._[0] || args['--name'],
         material: args['--material'] || false,
         serve: args['--serve'] || false,
+        port: args['--port'] || false,
     }
 }
 
@@ -46,7 +49,8 @@ async function promptForMissingOptions(options) {
     const answers = await inquirer.prompt(questions);
     return {
         ...options,
-        name: options.name || answers.name
+        name: options.name || answers.name,
+        port: options.port || 4200
     };
 }
 
@@ -61,12 +65,12 @@ export async function cli(args) {
             console.log(`Installing Material ... `);
             addMaterialFn(options.name).then((result) => {
                 if (options.serve) {
-                    runServe();
+                    runServe(options.port);
                 }
             });
         } else {
             if (options.serve) {
-                runServe();
+                runServe(options.port);
             }
         }
         exec(runVsCode);
@@ -77,27 +81,33 @@ export async function cli(args) {
 
 async function execCmd(options) {
     return new Promise((resolve, reject) => {
-        exec(` ng new ${options.name} --routing --style=scss `, (error, stdout, stderr) => {
+        const process = exec(` ng new ${options.name} --routing --style=scss `, (error, stdout, stderr) => {
             if (error) {
                 console.warn(error);
             }
             resolve(stdout ? stdout : stderr);
+        });
+        process.stdout.on('data', (data) => {
+            console.log(data);
         });
     });
 }
 
 async function addMaterialFn(name) {
     return new Promise((resolve, reject) => {
-        exec('ng add @angular/material ', (error, stdout, stderr) => {
+        const process = exec('ng add @angular/material ', (error, stdout, stderr) => {
             if (error) {
                 console.warn(error);
             }
             resolve(stdout ? stdout : stderr);
         });
-    });
+        process.stdout.on('data ', (data) => {
+            console.log(data);
+        });
+    }); 
 }
 
-function runServe() {
+function runServe(port) {
     console.log(`Running server ... `);
-    exec(ngServe);
+    exec(`${ngServe} --port=${port}`);
 }
