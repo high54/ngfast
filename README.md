@@ -5,13 +5,15 @@ CLI to create angular projet with material.
 - Adding Angular Material to this project
 - Run `ng serve --o`
 - Open VsCode
-- 
+  
+
 ## Require
 
 - NodeJs
 - Angular
 - VsCode
-- 
+  
+
 # Installation
 
 npm :
@@ -35,8 +37,6 @@ or
 |--------|-------------------------|---------|
 | -m     | Add Angular Material    | false   |
 | -s     | Open project on browser | false   |
-|        |                         |         |
-
 
 
 # License
